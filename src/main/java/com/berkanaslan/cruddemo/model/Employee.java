@@ -1,16 +1,10 @@
-package com.berkanaslan.cruddemo.entity;
+package com.berkanaslan.cruddemo.model;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "employee")
-public class Employee {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
+public class Employee extends BaseEntity {
     @Column(name = "first_name")
     private String firstName;
 
@@ -29,13 +23,6 @@ public class Employee {
         this.email = email;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -59,15 +46,5 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 }
