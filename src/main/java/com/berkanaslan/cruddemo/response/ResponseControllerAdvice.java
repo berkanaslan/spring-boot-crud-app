@@ -14,14 +14,12 @@ public class ResponseControllerAdvice implements ResponseBodyAdvice<Object> {
     public static final String OK_MESSAGE = "Success!";
 
     @Override
-    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
+    public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
         return true;
     }
 
     @Override
-    public Object beforeBodyWrite(Object objet, MethodParameter methodParameter, MediaType mediaType,
-                                  Class<? extends HttpMessageConverter<?>> aClass,
-                                  ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        return new ResponseWrapper(OK_MESSAGE, objet);
+    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+        return new ResponseWrapper(OK_MESSAGE, body);
     }
 }

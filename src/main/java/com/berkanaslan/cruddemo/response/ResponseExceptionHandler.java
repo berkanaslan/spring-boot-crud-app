@@ -14,8 +14,8 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
     private static final String ERROR_MESSAGE = "Error!";
 
     @ExceptionHandler(value = RuntimeException.class)
-    protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
-        ResponseWrapper responseWrapper = new ResponseWrapper(ERROR_MESSAGE, ex.getMessage());
-        return handleExceptionInternal(ex, responseWrapper, new HttpHeaders(), HttpStatus.CONFLICT, request);
+    protected ResponseEntity<Object> handleConflict(RuntimeException exception, WebRequest request) {
+        ResponseWrapper responseWrapper = new ResponseWrapper(ERROR_MESSAGE, exception.getMessage());
+        return handleExceptionInternal(exception, responseWrapper, new HttpHeaders(), HttpStatus.CONFLICT, request);
     }
 }

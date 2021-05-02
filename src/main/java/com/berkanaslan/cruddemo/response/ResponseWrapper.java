@@ -1,7 +1,9 @@
 package com.berkanaslan.cruddemo.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
 
+@Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseWrapper {
 
@@ -23,15 +25,4 @@ public class ResponseWrapper {
         this.data = data;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public Object getData() {
-        return data;
-    }
 }
